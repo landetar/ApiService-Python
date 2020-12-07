@@ -1,0 +1,9 @@
+{
+    "users": [
+        {"id": "1", "login": "usuario1", "password": "devops01"},
+        {"id": "2", "login": "usuario2", "password": "devops02"},
+        {"id": "3", "login": "usuario3", "password": "devops03"},
+        {"id": "4", "login": "usuario4", "password": "devops04"},
+        {"id": "5", "login": "usuario5", "password": "devops05"}
+    ]
+}
