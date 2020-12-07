@@ -55,7 +55,10 @@ def login_user():
 @token_required
 def get_message(current_user):
     data = request.get_json()
-    return jsonify({'message' : 'Hello ' + data['to'] + ' your message will be send'})
+    login = LoginUser()
+    messageReturned = login.get_message(data['to'])
+    return jsonify({'message' : messageReturned})
+    #return jsonify({'message' : 'Hello ' + data['to'] + ' your message will be send'})
 
 @app.route('/DevOps/ping')
 def ping():
