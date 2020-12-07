@@ -1,0 +1,341 @@
+{
+    "source": 8,
+    "revision": 1,
+    "description": null,
+    "createdBy": {
+        "displayName": "Fausto Rodrigo",
+        "url": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+        "_links": {
+            "avatar": {
+                "href": "XXxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+            }
+        },
+        "id": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+        "uniqueName": "XXXXXXXXXXXXXXXXX",
+        "imageUrl": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+        "descriptor": "msa.ODE1MjRmMWEtNmMxNC03NjY1LTliYzAtYmEwYmJjMTEwN2Rk"
+    },
+    "createdOn": "2020-12-06T04:08:38.267Z",
+    "modifiedBy": {
+        "displayName": "Fausto Rodrigo",
+        "url": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+        "_links": {
+            "avatar": {
+                "href": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+            }
+        },
+        "id": "14ae8fea-fd8f-4113-9cfe-5f0e305aeea2",
+        "uniqueName": "XXXXXXXXXXXXXXX",
+        "imageUrl": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+        "descriptor": "msa.ODE1MjRmMWEtNmMxNC03NjY1LTliYzAtYmEwYmJjMTEwN2Rk"
+    },
+    "modifiedOn": "2020-12-06T04:08:38.267Z",
+    "isDeleted": false,
+    "lastRelease": {
+        "id": 41,
+        "name": "Release-18",
+        "artifacts": [],
+        "_links": {},
+        "description": "Triggered by DevOps - 1 - CI 20201207.6.",
+        "releaseDefinition": {
+            "id": 4,
+            "projectReference": null,
+            "_links": {}
+        },
+        "createdOn": "2020-12-07T03:07:29.673Z",
+        "createdBy": {
+            "displayName": "Fausto Rodrigo",
+            "url": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+            "_links": {
+                "avatar": {
+                    "href": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+                }
+            },
+            "id": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+            "uniqueName": "XXXXXXXXXXXXXXXXXXXXXXXXXX",
+            "imageUrl": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+            "descriptor": "msa.ODE1MjRmMWEtNmMxNC03NjY1LTliYzAtYmEwYmJjMTEwN2Rk"
+        }
+    },
+    "variables": {},
+    "variableGroups": [],
+    "environments": [
+        {
+            "id": 4,
+            "name": "dev",
+            "rank": 1,
+            "owner": {
+                "displayName": "Fausto Rodrigo",
+                "url": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+                "_links": {
+                    "avatar": {
+                        "href": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+                    }
+                },
+                "id": "14ae8fea-fd8f-4113-9cfe-5f0e305aeea2",
+                "uniqueName": "XXXXXXXXXXXXXXXXXXXX",
+                "imageUrl": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+                "descriptor": "msa.ODE1MjRmMWEtNmMxNC03NjY1LTliYzAtYmEwYmJjMTEwN2Rk"
+            },
+            "variables": {
+                "dockerAuthSecretName": {
+                    "value": "devopsXXXXXXXX"
+                },
+                "namespace": {
+                    "value": "devopXXXXXXXXXXXX"
+                },
+                "appName": {
+                    "value": "devopsXXXXXXXXX"
+                }
+            },
+            "variableGroups": [],
+            "preDeployApprovals": {
+                "approvals": [
+                    {
+                        "rank": 1,
+                        "isAutomated": true,
+                        "isNotificationOn": false,
+                        "id": 10
+                    }
+                ]
+            },
+            "deployStep": {
+                "id": 11
+            },
+            "postDeployApprovals": {
+                "approvals": [
+                    {
+                        "rank": 1,
+                        "isAutomated": true,
+                        "isNotificationOn": false,
+                        "id": 12
+                    }
+                ]
+            },
+            "deployPhases": [
+                {
+                    "deploymentInput": {
+                        "parallelExecution": {
+                            "parallelExecutionType": 0
+                        },
+                        "agentSpecification": {
+                            "identifier": "ubuntu-16.04"
+                        },
+                        "skipArtifactsDownload": false,
+                        "artifactsDownloadInput": {
+                            "downloadInputs": []
+                        },
+                        "queueId": 47,
+                        "demands": [],
+                        "enableAccessToken": false,
+                        "timeoutInMinutes": 0,
+                        "jobCancelTimeoutInMinutes": 1,
+                        "condition": "succeeded()",
+                        "overrideInputs": {}
+                    },
+                    "rank": 1,
+                    "phaseType": 1,
+                    "name": "Run on agent",
+                    "refName": null,
+                    "workflowTasks": [
+                        {
+                            "environment": {},
+                            "taskId": "cbc316a2-586f-4def-be79-488a1f503564",
+                            "version": "1.*",
+                            "name": "kubectl set imagePullSecrets",
+                            "refName": "",
+                            "enabled": true,
+                            "alwaysRun": false,
+                            "continueOnError": false,
+                            "timeoutInMinutes": 0,
+                            "definitionType": "task",
+                            "overrideInputs": {},
+                            "condition": "succeeded()",
+                            "inputs": {
+                                "connectionType": "Kubernetes Service Connection",
+                                "kubernetesServiceEndpoint": "7fc04c36-0dea-4b84-9336-23cee927778b",
+                                "azureSubscriptionEndpoint": "",
+                                "azureResourceGroup": "",
+                                "kubernetesCluster": "DevOps",
+                                "namespace": "$(namespace)",
+                                "command": "get",
+                                "useConfigurationFile": "false",
+                                "configuration": "",
+                                "arguments": "service",
+                                "secretType": "dockerRegistry",
+                                "secretArguments": "",
+                                "containerRegistryType": "Azure Container Registry",
+                                "dockerRegistryEndpoint": "",
+                                "azureSubscriptionEndpointForSecrets": "c1e934ce-1a5d-411d-96f4-826148f7c60c",
+                                "azureContainerRegistry": "devopsexerciseacr.azurecr.io",
+                                "secretName": "$(dockerAuthSecretName)",
+                                "forceUpdate": "true",
+                                "configMapName": "",
+                                "forceUpdateConfigMap": "false",
+                                "useConfigMapFile": "false",
+                                "configMapFile": "",
+                                "configMapArguments": "",
+                                "versionOrLocation": "version",
+                                "versionSpec": "1.18.10",
+                                "checkLatest": "false",
+                                "specifyLocation": "",
+                                "cwd": "$(System.DefaultWorkingDirectory)",
+                                "outputFormat": "json"
+                            }
+                        },
+                        {
+                            "environment": {},
+                            "taskId": "e213ff0f-5d5c-4791-802d-52ea3e7be1f1",
+                            "version": "2.*",
+                            "name": "Generate Kubernetes Manifest file",
+                            "refName": "",
+                            "enabled": true,
+                            "alwaysRun": false,
+                            "continueOnError": false,
+                            "timeoutInMinutes": 0,
+                            "definitionType": "task",
+                            "overrideInputs": {},
+                            "condition": "succeeded()",
+                            "inputs": {
+                                "targetType": "inline",
+                                "filePath": "",
+                                "arguments": "",
+                                "script": "'# $(appName)/deployment.yaml\napiVersion: apps/v1\nkind: Deployment\nmetadata:\n  name: $(appName)\n  labels:\n    app: $(appName)\nspec:\n  replicas: 2\n  selector:\n    matchLabels:\n      app: $(appName)\n  template:\n    metadata:\n      labels:\n        app: $(appName)\n    spec:\n      containers:\n        - name: $(appName)\n          image: devopsexerciseacr.azurecr.io/devopsafa2:$(Build.BuildId)\n          ports:\n            - name: http\n              containerPort: 5001\n              protocol: TCP\n\n---\n\n# $(appName)/service.yaml\napiVersion: v1\nkind: Service\nmetadata:\n  name: $(appName)\n  labels:\n    app: $(appName)\nspec:\n  type: LoadBalancer\n  ports:\n    - port: 5001\n      targetPort: http\n      protocol: TCP\n      name: http\n  selector:\n    app: $(appName)' | Set-Content $(Agent.TempDirectory)/manifest.yaml",
+                                "errorActionPreference": "stop",
+                                "failOnStderr": "false",
+                                "ignoreLASTEXITCODE": "false",
+                                "workingDirectory": ""
+                            }
+                        },
+                        {
+                            "environment": {},
+                            "taskId": "dee316a2-586f-4def-be79-488a1f503dfe",
+                            "version": "0.*",
+                            "name": "Kubernetes Manifest Deploy",
+                            "refName": "",
+                            "enabled": true,
+                            "alwaysRun": false,
+                            "continueOnError": false,
+                            "timeoutInMinutes": 0,
+                            "definitionType": "task",
+                            "overrideInputs": {},
+                            "condition": "succeeded()",
+                            "inputs": {
+                                "action": "deploy",
+                                "kubernetesServiceConnection": "7fc04c36-0dea-4b84-9336-23cee927778b",
+                                "namespace": "$(namespace)",
+                                "percentage": "0",
+                                "strategy": "none",
+                                "manifests": "$(Agent.TempDirectory)/manifest.yaml",
+                                "containers": "",
+                                "imagePullSecrets": "$(dockerAuthSecretName)"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "environmentOptions": {
+                "emailNotificationType": "OnlyOnFailure",
+                "emailRecipients": "release.environment.owner;release.creator",
+                "skipArtifactsDownload": false,
+                "timeoutInMinutes": 0,
+                "enableAccessToken": false,
+                "publishDeploymentStatus": false,
+                "badgeEnabled": false,
+                "autoLinkWorkItems": false,
+                "pullRequestDeploymentEnabled": false
+            },
+            "demands": [],
+            "conditions": [
+                {
+                    "name": "ReleaseStarted",
+                    "conditionType": 1,
+                    "value": ""
+                }
+            ],
+            "executionPolicy": {
+                "concurrencyCount": 0,
+                "queueDepthCount": 0
+            },
+            "schedules": [],
+            "currentRelease": {
+                "id": 41,
+                "url": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+                "_links": {}
+            },
+            "retentionPolicy": {
+                "daysToKeep": 30,
+                "releasesToKeep": 3,
+                "retainBuild": true
+            },
+            "properties": {},
+            "preDeploymentGates": {
+                "id": 0,
+                "gatesOptions": null,
+                "gates": []
+            },
+            "postDeploymentGates": {
+                "id": 0,
+                "gatesOptions": null,
+                "gates": []
+            },
+            "environmentTriggers": [],
+            "badgeUrl": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+        }
+    ],
+    "artifacts": [
+        {
+            "sourceId": "fea3386f-8f73-4a81-98ff-fb2d0f2e6114:12",
+            "type": "Build",
+            "alias": "Drop",
+            "definitionReference": {
+                "defaultVersionType": {
+                    "id": "latestType",
+                    "name": "Latest"
+                },
+                "definition": {
+                    "id": "12",
+                    "name": "12"
+                },
+                "project": {
+                    "id": "fea3386f-8f73-4a81-98ff-fb2d0f2e6114",
+                    "name": "DevOps_Exercise"
+                },
+                "artifactSourceDefinitionUrl": {
+                    "id": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+                    "name": ""
+                }
+            },
+            "isPrimary": true,
+            "isRetained": false
+        }
+    ],
+    "triggers": [
+        {
+            "artifactAlias": "Drop",
+            "triggerConditions": [],
+            "triggerType": 1
+        }
+    ],
+    "releaseNameFormat": "Release-$(rev:r)",
+    "tags": [],
+    "properties": {
+        "DefinitionCreationSource": {
+            "$type": "System.String",
+            "$value": "PortalExtension Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36"
+        }
+    },
+    "id": 4,
+    "name": "DevOps - 1 - CD",
+    "path": "\\",
+    "projectReference": null,
+    "url": "XXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+    "_links": {
+        "self": {
+            "href": "XXXXXXXXXXXXXXXXXXXXXXXX"
+        },
+        "web": {
+            "href": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+        }
+    }
+}
