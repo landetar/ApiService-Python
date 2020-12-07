@@ -1,0 +1,40 @@
+# Variable 'python.version' was defined in the Variables tab
+# Multi-job configuration must be converted to matrix strategy: https://docs.microsoft.com/en-us/azure/devops/pipelines/process/phases?view=azure-devops&tabs=yaml#multi-job-configuration
+trigger:
+  branches:
+    include:
+    - refs/heads/main
+name: $(date:yyyyMMdd)$(rev:.r)
+resources:
+  repositories:
+  - repository: self
+    type: git
+    ref: refs/heads/main
+jobs:
+- job: Phase_1
+  displayName: Build and Test
+  pool:
+    vmImage: ubuntu-16.04
+  steps:
+  - checkout: self
+  - task: UsePythonVersion@0
+    displayName: Use Python $(python.version)
+    inputs:
+      versionSpec: $(python.version)
+  - task: CmdLine@2
+    displayName: Install dependencies
+    inputs:
+      script: python -m pip install --upgrade pip && pip install -r requirements.txt
+  - task: CmdLine@2
+    displayName: pytest
+    inputs:
+      script: pip install pytest && pytest test.py
+  - task: DockerInstaller@0
+    displayName: Install Docker 17.09.0-ce
+  - task: Docker@2
+    displayName: buildAndPush
+    inputs:
+      containerRegistry: 58964faf-97bc-4fe9-ab33-c15554f8704d
+      repository: landetar/devops
+      Dockerfile: $(Build.SourcesDirectory)/dockerfile
+...
